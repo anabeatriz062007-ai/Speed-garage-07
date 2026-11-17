@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Agende a lavagem do seu veículo na Speed Garage. Cuidado automotivo com qualidade.">
+<title>Speed Garage | Agende sua lavagem</title>
+<style>
+:root{--yellow:#ffd21a;--black:#101010;--panel:#191919;--muted:#a8a8a8;--white:#f7f7f7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0c0c0c;color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#101010ee;border-bottom:1px solid #292929;backdrop-filter:blur(12px)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;font-size:1.35rem;letter-spacing:1px}.brand span{color:var(--yellow)}nav{display:flex;gap:24px;font-size:.92rem;color:#ddd}nav a:hover{color:var(--yellow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;padding:13px 19px;background:var(--yellow);color:#111;font-weight:800;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}.btn.outline{background:transparent;border:1px solid var(--yellow);color:var(--yellow)}
+.hero{min-height:570px;display:grid;align-items:center;background:linear-gradient(90deg,#090909 0%,#090909e8 42%,#09090955 100%),url('https://images.unsplash.com/photo-1607860108855-64acen1e7c6b?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{max-width:650px;padding:86px 0}.eyebrow{color:var(--yellow);font-weight:800;text-transform:uppercase;letter-spacing:3px;font-size:.78rem}.hero h1{font-size:clamp(2.7rem,6vw,5.3rem);line-height:.98;margin:16px 0}.hero h1 span{color:var(--yellow)}.hero p{font-size:1.08rem;color:#ddd;max-width:520px;margin-bottom:28px}.actions{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:76px 0}.section-head{text-align:center;margin-bottom:36px}.section-head h2{font-size:clamp(2rem,4vw,3rem);margin:8px 0}.section-head p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--panel);border:1px solid #292929;border-radius:14px;overflow:hidden}.card img{width:100%;height:190px;object-fit:cover;display:block}.card-body{padding:20px}.card h3{margin:0 0 8px;font-size:1.2rem}.card p{color:var(--muted);font-size:.94rem;min-height:44px}.price{color:var(--yellow);font-weight:900;font-size:1.08rem}
+.booking{background:#151515}.booking-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}.booking-copy{position:sticky;top:105px}.booking-copy h2{font-size:2.5rem;line-height:1.05;margin:10px 0}.booking-copy p{color:var(--muted)}.form{background:#202020;border:1px solid #333;border-radius:16px;padding:25px;display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:.88rem;font-weight:700;color:#ddd}input,select,textarea{width:100%;border:1px solid #444;border-radius:8px;background:#111;color:white;padding:13px;font:inherit;min-height:46px}input:focus,select:focus,textarea:focus{outline:2px solid var(--yellow);border-color:var(--yellow)}.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.slot{border:1px solid #555;background:#111;color:#eee;border-radius:7px;padding:10px 4px;cursor:pointer}.slot.selected{background:var(--yellow);color:#111;border-color:var(--yellow);font-weight:800}.slot:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}.hint{font-size:.78rem;color:var(--muted)}.notice{grid-column:1/-1;color:#bbb;font-size:.82rem;background:#151515;border-radius:8px;padding:12px}.form .btn{grid-column:1/-1;width:100%;font-size:1rem}
+.gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:190px 190px;gap:12px}.gallery img{width:100%;height:100%;object-fit:cover;border-radius:12px}.gallery img:first-child{grid-row:span 2}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-card{background:var(--panel);border:1px solid #292929;padding:25px;border-radius:14px}.info-card h3{margin-top:0;color:var(--yellow)}.info-card p{color:#ccc;margin:7px 0}
+footer{border-top:1px solid #292929;padding:28px 0;color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.wa-float{position:fixed;right:20px;bottom:20px;z-index:8;background:#25d366;color:#071b0d;border-radius:50px;padding:14px 18px;font-weight:900;box-shadow:0 8px 28px #0008}
+@media(max-width:760px){nav{display:none}.hero{min-height:520px}.cards{grid-template-columns:1fr}.booking-grid,.info{grid-template-columns:1fr}.booking-copy{position:static}.form{grid-template-columns:1fr}.field.full,.notice,.form .btn{grid-column:1}.slots{grid-template-columns:repeat(3,1fr)}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px}.gallery img:first-child{grid-row:auto;grid-column:span 2}.gallery img{height:100%}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#">SPEED <span>GARAGE</span></a><nav><a href="#servicos">Serviços</a><a href="#agendar">Agendamento</a><a href="#fotos">Fotos</a><a href="#contato">Contato</a></nav><a class="btn" href="#agendar">AGENDAR</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="hero-content"><div class="eyebrow">Cuidado automotivo</div><h1>SEU CARRO.<br><span>NOSSO CAPRICHO.</span></h1><p>Seu veículo merece atenção em cada detalhe. Escolha o serviço, encontre um horário e solicite seu agendamento na Speed Garage.</p><div class="actions"><a class="btn" href="#agendar">AGENDAR MEU HORÁRIO</a><a class="btn outline" href="#servicos">VER SERVIÇOS</a></div></div></div></section>
+<section id="servicos"><div class="wrap"><div class="section-head"><div class="eyebrow">O que fazemos</div><h2>Serviços para seu veículo</h2><p>Confira os serviços e valores. Alguns preços variam conforme o veículo e a condição.</p></div>
+<div class="cards">
+<article class="card"><img src="https://images.unsplash.com/photo-1607860108855-64acen1e7c6b?auto=format&fit=crop&w=800&q=80" alt="Lavagem técnica"><div class="card-body"><h3>Lavagem técnica</h3><p>Lavagem detalhada com atenção aos acabamentos.</p><div class="price">R$ 200,00</div></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80" alt="Higienização interna"><div class="card-body"><h3>Higienização interna</h3><p>Limpeza cuidadosa do interior do veículo.</p><div class="price">R$ 450,00</div></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1632823471565-1ecdf5c5b6b4?auto=format&fit=crop&w=800&q=80" alt="Lavagem simples"><div class="card-body"><h3>Lavagem simples</h3><p>Hatch: R$ 60,00 · Sedan/SUV: R$ 70,00 · Caminhonete/SUV: R$ 80,00 · Moto: R$ 50,00</p><div class="price">A partir de R$ 50,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Tratamento dos vidros</h3><p>Tratamento para cuidado e acabamento dos vidros.</p><div class="price">R$ 100,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Lavagem do motor</h3><p>Limpeza especializada do compartimento do motor.</p><div class="price">R$ 150,00 a R$ 200,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Tratamento da pintura / polimento</h3><p>Cuidados para recuperar o brilho e o acabamento da pintura.</p><div class="price">R$ 450,00 a R$ 800,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Limpeza das caixas de roda</h3><p>Limpeza detalhada das caixas de roda.</p><div class="price">R$ 150,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Restauração dos plásticos</h3><p>Renovação do aspecto dos plásticos externos.</p><div class="price">R$ 100,00 a R$ 200,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Restauração de faróis</h3><p>Restauração para melhorar o aspecto dos faróis.</p><div class="price">R$ 150,00 a R$ 350,00</div></div></article>
+</div>
+<div class="section-head" style="margin:54px 0 28px"><div class="eyebrow">Instalação e acessórios</div><h2>Instalação de acessórios</h2><p>Consulte a equipe para confirmar compatibilidade e detalhes de instalação.</p></div>
+<div class="cards">
+<article class="card"><div class="card-body"><h3>Instalação de som e acessórios</h3><p>Instalação de equipamentos e acessórios automotivos.</p><div class="price">R$ 150,00 a R$ 300,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Câmera de ré</h3><p>Instalação de câmera para auxiliar nas manobras.</p><div class="price">R$ 150,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Sensor de estacionamento</h3><p>Instalação de sensor auxiliar de estacionamento.</p><div class="price">R$ 250,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Faróis de milha</h3><p>Instalação de faróis auxiliares.</p><div class="price">R$ 150,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Alarme e bloqueador</h3><p>Instalação de sistema de alarme e bloqueador.</p><div class="price">R$ 150,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Vidro elétrico</h3><p>Valor por porta.</p><div class="price">R$ 100,00 por porta</div></div></article>
+<article class="card"><div class="card-body"><h3>Trava elétrica</h3><p>Instalação de trava elétrica.</p><div class="price">R$ 350,00</div></div></article>
+<article class="card"><div class="card-body"><h3>Aplicação de película</h3><p>Aplicação de película automotiva.</p><div class="price">R$ 500,00 a R$ 850,00</div></div></article>
+</div></div></section>
+<section class="booking" id="agendar"><div class="wrap booking-grid"><div class="booking-copy"><div class="eyebrow">Agendamento online</div><h2>Escolha seu horário.</h2><p>Preencha os dados e selecione uma opção de horário. O pedido será enviado para a equipe pelo WhatsApp para confirmação.</p><p><strong style="color:#ffd21a">Importante:</strong> o horário só fica confirmado após o retorno da Speed Garage.</p></div>
+<form class="form" id="bookingForm">
+<div class="field"><label for="name">Seu nome</label><input id="name" required placeholder="Nome completo"></div>
+<div class="field"><label for="phone">WhatsApp</label><input id="phone" required inputmode="tel" placeholder="(11) 99999-9999"></div>
+<div class="field"><label for="vehicle">Veículo</label><input id="vehicle" required placeholder="Ex.: Onix, Corolla..."></div>
+<div class="field"><label for="service">Serviço desejado</label><select id="service" required><option value="">Selecione</option><option>Lavagem externa</option><option>Limpeza interna</option><option>Higienização e estética</option><option>Outro / consultar</option></select></div>
+<div class="field full"><label for="date">Data desejada</label><input type="date" id="date" required><span class="hint">Os horários abaixo são sugestões de agenda. Confirme a disponibilidade com a equipe.</span></div>
+<div class="field full"><label>Horário desejado</label><div class="slots" id="slots"></div><input type="hidden" id="time" required></div>
+<div class="field full"><label for="notes">Observações (opcional)</label><textarea id="notes" rows="2" placeholder="Conte algo importante sobre o veículo ou serviço."></textarea></div>
+<div class="notice">Ao enviar, o WhatsApp será aberto com os dados do pedido. Este formulário é uma demonstração: não bloqueia horários em tempo real nem substitui a confirmação da equipe.</div>
+<button class="btn" type="submit">ENVIAR AGENDAMENTO PELO WHATSAPP</button>
+</form></div></section>
+<section id="fotos"><div class="wrap"><div class="section-head"><div class="eyebrow">Nosso trabalho</div><h2>Brilho que faz a diferença</h2><p>Algumas imagens ilustrativas de cuidados automotivos.</p></div><div class="gallery">
+<img src="https://images.unsplash.com/photo-1607860108855-64acen1e7c6b?auto=format&fit=crop&w=1000&q=85" alt="Lavagem de carro">
+<img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=85" alt="Interior de automóvel">
+<img src="https://images.unsplash.com/photo-1632823471565-1ecdf5c5b6b4?auto=format&fit=crop&w=800&q=85" alt="Detalhamento automotivo">
+<img src="https://images.unsplash.com/photo-1605164599901-4f9f1c3e6f7a?auto=format&fit=crop&w=800&q=85" alt="Veículo limpo">
+<img src="https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=800&q=85" alt="Acabamento automotivo">
+</div></div></section>
+<section id="contato"><div class="wrap"><div class="section-head"><div class="eyebrow">Visite a gente</div><h2>Entre em contato</h2><p>Fale com a Speed Garage para confirmar preços, endereço e disponibilidade.</p></div><div class="info">
+<div class="info-card"><h3>Horário de funcionamento</h3><p>Segunda a sábado, das 10h às 18h. Aos domingos, atendimento ocasional até 12h; consulte a disponibilidade.</p><p class="hint">Horários ainda precisam ser confirmados pela empresa.</p></div>
+<div class="info-card"><h3>Localização</h3><p>R. dos Sábias, 6 – Parque das Cigarreiras, Taboão da Serra – SP, 06790-270.</p><p><a class="btn outline" href="https://www.google.com/maps/search/?api=1&query=R.%20dos%20S%C3%A1bias%206%2C%20Parque%20das%20Cigarreiras%2C%20Tabo%C3%A3o%20da%20Serra%20SP%2C%2006790-270" target="_blank" rel="noopener">ABRIR MAPA</a></p></div>
+</div></div></section>
+</main>
+<footer><div class="wrap footer-row"><div><strong style="color:#fff">SPEED <span style="color:#ffd21a">GARAGE</span></strong><br>Seu carro merece esse cuidado.</div><div>Instagram: <a href="https://instagram.com/speedgarage07" target="_blank" rel="noopener" style="color:#ffd21a">@speedgarage07</a><br>WhatsApp: (11) 98472-7562</div><div>© <span id="year"></span> Speed Garage</div></div></footer>
+<a class="wa-float" href="https://wa.me/5511984727562?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Speed%20Garage." target="_blank" rel="noopener">WhatsApp</a>
+<script>
+const times=['08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00'];
+const slots=document.getElementById('slots'), timeInput=document.getElementById('time');
+times.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='slot';b.textContent=t;b.addEventListener('click',()=>{document.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');timeInput.value=t});slots.appendChild(b)});
+const date=document.getElementById('date');const today=new Date();date.min=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('bookingForm').addEventListener('submit',e=>{e.preventDefault();if(!timeInput.value){alert('Selecione um horário desejado.');return}
+const data={nome:document.getElementById('name').value,telefone:document.getElementById('phone').value,veiculo:document.getElementById('vehicle').value,servico:document.getElementById('service').value,data:date.value.split('-').reverse().join('/'),horario:timeInput.value,observacoes:document.getElementById('notes').value||'Nenhuma'};
+const msg=`Olá! Gostaria de solicitar um agendamento na Speed Garage:\n\nNome: ${data.nome}\nWhatsApp: ${data.telefone}\nVeículo: ${data.veiculo}\nServiço: ${data.servico}\nData: ${data.data}\nHorário desejado: ${data.horario}\nObservações: ${data.observacoes}\n\nAguardo confirmação da disponibilidade!`;
+window.open('https://wa.me/5511984727562?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+</body></html>
